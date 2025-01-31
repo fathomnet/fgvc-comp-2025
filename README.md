@@ -27,19 +27,32 @@ Submission format should resemble the following:
 Where an annotation\_id is provided alongside a taxon classification, or concept\_name, for each ROI. 
 
 Submissions can be any of the following taxonomic ranks: kingdom, phylum, class, order, family,  genus, and species. These ranks are part of a **taxonomic tree**, which organizes living things into a branching structure, starting with broad groups and narrowing down to specific species. A visual representation of this can be seen below,  
-![][image1]  
+
+![alt text](https://github.com/fathomnet/fgvc-comp-2025/blob/main/assets/taxonomic_tree.png)
+
+Reference-style: 
 Cain, A. (2024, November 18). *taxonomy*. *Encyclopedia Britannica*. https://www.britannica.com/science/taxonomy  
 Submissions will be evaluated on taxonomic distance from the ground truth answer. To do so we use the [FathomNet WoRMS Module](https://fathomnet-py.readthedocs.io/en/latest/api.html#module-fathomnet.api.worms) to populate the full taxonomic name and a reference library of these taxonomic names is stored in the evaluation script. For example, if the submission concept name is *Abyssocucumis abyssorum*, the score function will populate a dictionary like the following:   
-![][image2]   
+| Kingdom | Phylum | Class | Order | Family | Genus | Species |
+| --- | --- | --- | --- | --- | --- | --- |
+| Animalia | Echinodermata | Holothuroidea | Dendrochirotida | Cucumariidae | Abyssocucumis | Abyssocucumis abyssorum |
+
+
 This submission is compared with the ground truth taxonomic name, and a score is given corresponding to the distance between the submission and the ground truth answer along the taxonomic tree. Example scores and visual representations are provided below.
 
 In the following example a score of one is given, and is represented visually via the bolded line. In this case, the submission taxon is Asteronyx of Genus rank while the ground truth is *Asteronyx loveni,* which is at the species rank. The distance between the rank of the ground truth and the submission is 1, so the resulting score is 1\.   
-![][image3]  
+
+![](https://github.com/fathomnet/fgvc-comp-2025/blob/main/assets/example_same_line.png)  
+
 In the following example a score of two is given, and this is represented visually via the bolded lines. In this case, both the submission and ground truth are of the species rank. The submission taxon is *Asteronyx longifissus* while the ground truth is *Asteronyx loveni*. The distance between the ground truth and the submission is 2, so the resulting score is 2\.   
-![][image4]  
+
+![](https://github.com/fathomnet/fgvc-comp-2025/blob/main/assets/example_same_rank.png) 
+
 In the following example a score of six is given, and visually this can be seen in the bolded line. In this case the submission taxon is *Ophiacanthidae* of family rank while the ground truth is *Asteronyx loveni,* which is of the species rank. The distance between the rank of the ground truth and the submission is 6, so the resulting score is 6\.   
-![][image5]  
-Notes:
+
+![](https://github.com/fathomnet/fgvc-comp-2025/blob/main/assets/example_different_ranks.png) 
+
+## Notes:
 
 * If a submission taxon name is not discoverable within the library of taxonomic names referenced in the evaluation metric, then a maximum score of 12 is assigned. This includes null submissions and misspellings.   
 * Some taxons have complex taxonomic ranks such as suborders and infraclasses. For this task, we will only consider the 7 taxonomic rankings: kingdom, phylum, class, order, family, genus, and species.  
