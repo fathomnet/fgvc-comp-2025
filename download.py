@@ -21,7 +21,6 @@ FORMATTER = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(messag
 HANDLER.setFormatter(FORMATTER)
 LOGGER.addHandler(HANDLER)
 
-
 async def download_image(client: AsyncClient, url: str, output_path: Path) -> None:
     """
     Downloads an image from a URL to the specified output path.
@@ -97,6 +96,12 @@ async def process_dataset(
     rois_dir = output_dir / "rois"
     annotations_csv_path = output_dir / "annotations.csv"
 
+    # set test_bool to True
+    if 'test' in dataset_path.name:
+        test_bool = True
+    else:
+        test_bool = False
+
     semaphore = asyncio.Semaphore(max_concurrent_downloads)
 
     async def download_image_limited(
@@ -140,8 +145,11 @@ async def process_dataset(
         image_path = image_paths[image.id]
         roi_path = rois_dir / f"{annotation.image_id}_{annotation.id}.png"
         crop_and_save_image(image_path, annotation.bbox, roi_path)
-        rows.append([str(roi_path.resolve()), category_names[annotation.category_id]])
-
+        if test_bool:
+            rows.append([str(roi_path.resolve()), None])
+        else:
+            rows.append([str(roi_path.resolve()), category_names[annotation.category_id]])
+            
     write_annotations_csv(annotations_csv_path, rows)
 
     print(f"Saved dataset to {output_dir.resolve().absolute()}")

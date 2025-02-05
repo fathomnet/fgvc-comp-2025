@@ -127,17 +127,22 @@ Images are made available for download by the unique URLs in the COCO-formatted 
 pip install -r requirements.txt
 ```
 
-To download the images, run the following script from the command line:
+To download the images, run the following scripts from the command line:
 
 ```bash
 python download.py path/to/dataset_train.json path/to/output_dir [-n NUM_DOWNLOADS]
+```
+```bash
 python download.py path/to/dataset_test.json path/to/output_dir [-n NUM_DOWNLOADS]
 ```
 
 The optional `-n`/`--num-downloads` parameter can be used to specify the maximum number of concurrent downloads. Setting this to a value >1 can speed up the total time it takes to download the images.
 
 > [!TIP]
-> If you've cloned this repository, the COCO dataset file is available at `dataset/dataset.json`:
+> If you've cloned this repository, the COCO dataset files are available as: `dataset/dataset_train.json` and `dataset/dataset_test.json`:
 > ```bash
-> python download.py dataset/dataset.json dataset/
+> python download.py datasets/dataset_train.json dataset/
+> ```
+> ```bash
+> python download.py datasets/dataset_test.json dataset/
 > ```
