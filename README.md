@@ -8,7 +8,7 @@ Consider marine wildlife monitoring in coastal waters near California. Daily vid
 
 Hierarchical classification—architectures that structure data to capture relationships across taxonomic ranks (e.g., from broad categories like families to specific species)—can significantly improve classification accuracy, as demonstrated by [recent advances](https://imageomics.github.io/bioclip/) in machine learning. In the field of marine ecology, accurate taxonomic classification is essential for addressing fundamental questions: What species exist in a particular place? What is the ecosystem biodiversity and how does it change over time? Questions like these motivate the focus of our 2025 FathomNet Competition, aiming to push the boundaries of taxonomic accuracy and inspire innovative solutions in this space.
 
-For this competition, we have curated data from the broader [FathomNet](https://database.fathomnet.org/fathomnet/#/) image set to tackle hierarchical classification. The training set contains 79 categories of marine animals of varying taxonomic ranks (e.g., family, genus, species), wherein 300 example instances of each category are provided for training. The test set contains the same 79 categories, where roughly 10 example instances of each category are provided for evaluation. The challenge is to develop a model that can accurately classify these taxa and ideally leverage their taxonomic information to do so. Developing these solutions for ocean research will enable scientists to process and explore ocean data more efficiently
+For this competition, we have curated data from the broader [FathomNet Database](https://database.fathomnet.org/fathomnet/#/) image set to tackle hierarchical classification. The training set contains 79 categories of marine animals of varying taxonomic ranks (e.g., family, genus, species), wherein 300 example instances of each category are provided for training. The test set contains the same 79 categories, where roughly 10 example instances of each category are provided for evaluation. The challenge is to develop a model that can accurately classify these taxa and ideally leverage their taxonomic information to do so. Developing these solutions for ocean research will enable scientists to process and explore ocean data more efficiently
 
 Participants should not use other image sets to train their models outside of the Kaggle competition data and the FathomNet Database [website](https://database.fathomnet.org/fathomnet/#/), however they can leverage other types of outside data sources for other aspects of the competition. Pre-trained models can be used for initialization of training (e.g. [BioCLIP](https://imageomics.github.io/bioclip/), [ImageNet](https://www.image-net.org/), or [COCO](https://cocodataset.org/#home) classification or detection models provided by many deep learning packages). Teams should plan on specifying additional data sources and/or pre-trained models used when uploading results.
 
@@ -73,7 +73,7 @@ You can see a list of all FGVC12 competitions [here]((https://sites.google.com/v
 
 The datasets are formatted to adhere to the [COCO Object Detection](https://cocodataset.org/#format-data) standard. Every training image contains at least one annotation corresponding to a `category` from 1 to 79\.
 
-We are not able to provide images as a single downloadable archive due to [FathomNet's Terms of Use](https://database.fathomnet.org/fathomnet/#/license). Images should be downloaded using the indicated `coco_url` field in each of the annotation files. Participants can either use the provided `download.py` python script or write their own. The download script will save two folders: an image and a region of interest (ROI) folder. The ROI folder contains cropped images that are saved with the following file format \<image\_id\>\_\<annoation\_id\>.png while the image folder contains files saved as \<image\_id\>.png, where the ids are specified in the `dataset.json` file provided to `download.py`. 
+We are not able to provide images as a single downloadable archive due to [FathomNet Database's Terms of Use](https://database.fathomnet.org/fathomnet/#/license). Images should be downloaded using the indicated `coco_url` field in each of the annotation files. Participants can either use the provided `download.py` python script or write their own. The download script will save two folders: an image and a region of interest (ROI) folder. The ROI folder contains cropped images that are saved with the following file format \<image\_id\>\_\<annoation\_id\>.png while the image folder contains files saved as \<image\_id\>.png, where the ids are specified in the `dataset.json` file provided to `download.py`. 
 
 ### Files
 
@@ -84,7 +84,7 @@ We are not able to provide images as a single downloadable archive due to [Fatho
 
 ### Terms of Use
 
-By downloading and using this dataset, you are agreeing to FathomNet's [Data Use Policy](https://fathomnet.org/fathomnet/#/license/). In particular:
+By downloading and using this dataset, you are agreeing to FathomNet Database's [Data Use Policy](https://fathomnet.org/fathomnet/#/license/). In particular:
 
 * The annotations are licensed under a [Creative Commons Attribution-No Derivatives 4.0 International License](https://creativecommons.org/licenses/by-nd/4.0/legalcode.en).  
 * The images are licensed under a [Creative Commons Attribution-Non Commercial-No Derivatives 4.0 International License.](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.en)   
@@ -92,7 +92,7 @@ By downloading and using this dataset, you are agreeing to FathomNet's [Data Use
 * Images and annotations are provided by the copyright holders and contributors "as is," and any express or implied warranties, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose are disclaimed.  
 * Please acknowledge FathomNet and MBARI when using images for publication or communication purposes regarding this competition. For all other uses of the images, users should contact the original copyright holder.
 
-For more details please see the [FathomNet Data Use Policy](https://database.fathomnet.org/fathomnet/#/about#datause) and [Terms of Use](https://database.fathomnet.org/fathomnet/#/license).
+For more details please see the [FathomNet Database Data Use Policy](https://database.fathomnet.org/fathomnet/#/about#datause) and [Terms of Use](https://database.fathomnet.org/fathomnet/#/license).
 
 ### Download
 
