@@ -47,6 +47,7 @@ In the following example a score of six is given, and visually this can be seen 
 * If a submission name is not discoverable within the library of taxonomic names referenced in the evaluation metric, then a maximum score of 12 is assigned. This includes null submissions and misspellings.   
 * Some classifications have more complex taxonomic ranks such as suborders and infraclasses. For this task, we will only consider the 7 taxonomic rankings: kingdom, phylum, class, order, family, genus, and species.  
 * The ground truth categories vary in taxonomic rank.
+* An important note on the test set: the images in the test set are on average smaller than those in the training. For more context on this please review this discussion.
 
 ### Competition information
 
